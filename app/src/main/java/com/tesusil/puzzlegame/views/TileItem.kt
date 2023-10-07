@@ -22,7 +22,7 @@ import com.tesusil.puzzlegame.game.ShiftDirection
 import kotlin.math.abs
 
 @Composable
-fun TileItem(tileNumber: Int, keyIndex: Int, onTileClick: (Int, ShiftDirection) -> Unit) {
+fun TileItem(tileNumber: Int, keyIndex: Int, backgroundColor: Color, onTileClick: (Int, ShiftDirection) -> Unit) {
     var offsetX by remember { mutableStateOf(0f) }
     var offsetY by remember { mutableStateOf(0f) }
 
@@ -30,7 +30,7 @@ fun TileItem(tileNumber: Int, keyIndex: Int, onTileClick: (Int, ShiftDirection) 
         modifier = Modifier
             .size(100.dp)
             .padding(0.5.dp)
-            .background(Color.Gray)
+            .background(backgroundColor)
             .pointerInput(Unit) {
                 detectDragGestures(onDragEnd = {
                     Log.d("Felek", "drag end : offset x : $offsetX , offset y : $offsetY")
@@ -56,14 +56,14 @@ fun TileItem(tileNumber: Int, keyIndex: Int, onTileClick: (Int, ShiftDirection) 
             },
         contentAlignment = Alignment.Center,
     ) {
-        Text(text = tileNumber.toString())
+        Text(text = tileNumber.toString(), color = Color.White)
     }
 }
 
 @Preview
 @Composable
 fun TitleItemPreview() {
-    TileItem(tileNumber = 1, keyIndex = 1, onTileClick = { _, _ ->
+    TileItem(tileNumber = 1, keyIndex = 1, Color.Blue, onTileClick = { _, _ ->
 
     })
 }
