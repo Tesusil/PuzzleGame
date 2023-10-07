@@ -1,5 +1,6 @@
 package com.tesusil.puzzlegame.game
 
+import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 
@@ -21,6 +22,7 @@ class PuzzleGame(private val boardSize: Int = DEFAULT_BOARD_SIZE) {
     }
 
     fun moveTile(tileIndex: Int, direction: ShiftDirection): Boolean {
+        Log.d("Felek", "moveTile: $tileIndex | $direction")
         return false;
     }
 }

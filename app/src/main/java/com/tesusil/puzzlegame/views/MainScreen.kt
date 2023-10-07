@@ -13,7 +13,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.tesusil.puzzlegame.game.PuzzleGame
-import com.tesusil.puzzlegame.game.ShiftDirection
 
 @Composable
 fun MainScreen() {
@@ -25,8 +24,8 @@ fun MainScreen() {
         val puzzleGame = remember { PuzzleGame() }
         
         BoardGame(puzzleGame.board.value,
-            onTileClick = {
-                puzzleGame.moveTile(it, ShiftDirection.UP)
+            onTileClick = { index, direction ->
+                puzzleGame.moveTile(index, direction)
             }
         )
         Spacer(modifier = Modifier.height(20.dp))
