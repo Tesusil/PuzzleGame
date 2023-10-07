@@ -39,7 +39,7 @@ fun TileItem(tileNumber: Int, keyIndex: Int, backgroundColor: Color, onTileClick
                     val direction = if (absX > absY) {
                         if (offsetX < 0) ShiftDirection.LEFT else ShiftDirection.RIGHT
                     } else {
-                        if (absY < 0) ShiftDirection.DOWN else ShiftDirection.UP
+                        if (offsetY < 0) ShiftDirection.UP else ShiftDirection.DOWN
                     }
                     onTileClick(keyIndex, direction)
                     offsetX = 0f
